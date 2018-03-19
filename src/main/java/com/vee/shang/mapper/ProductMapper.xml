@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vee.shang.mapper.ProductMapper">
+
+	<update id="update" parameterType="com.vee.shang.vo.ReqProductVo">
+     	UPDATE vs_style
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="img!=null">
+				img=#{img},
+			</if>
+			<if test="status!=null">
+				status=#{status},
+			</if>
+		</trim>
+		where id=#{styleId}
+	</update>
+
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vee.shang.mapper.FollowMapper">
+
+    <update id="update" parameterType="com.vee.shang.vo.ReqFollowVo">
+        UPDATE vs_follow
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="remarkFollowName!=null and remarkFollowName!=''">
+                remark_follow_name=#{remarkFollowName},
+            </if>
+            <if test="remarkFansName!=null and remarkFansName!=''">
+                remark_fans_name=#{remarkFansName},
+            </if>
+            <if test="dynamicStatus!=null">
+                dynamic_status=#{dynamicStatus},
+            </if>
+            <if test="blockStatus!=null">
+                block_status=#{blockStatus},
+            </if>
+            <if test="fansBlockStatus!=null">
+                fans_block_status=#{fansBlockStatus},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+
+</mapper>

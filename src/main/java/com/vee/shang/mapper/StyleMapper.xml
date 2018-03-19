@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vee.shang.mapper.StyleMapper">
+
+	<update id="update" parameterType="com.vee.shang.vo.ReqStyleVo">
+     	UPDATE vs_style
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="img!=null">
+				img=#{img},
+			</if>
+			<if test="status!=null">
+				status=#{status},
+			</if>
+		</trim>
+		where id=#{styleId}
+	</update>
+
+	<update id="updateChild" parameterType="com.vee.shang.vo.ReqStyleChildVo">
+		UPDATE vs_style_child
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="img!=null">
+				img=#{img},
+			</if>
+			<if test="status!=null">
+				status=#{status},
+			</if>
+		</trim>
+		where id=#{styleChildId}
+	</update>
+
+
+</mapper>
